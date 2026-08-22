@@ -1,6 +1,13 @@
 # dsh-folder-permissions
 
-Per-session, per-folder read/write permissions for the DeepSeek Harness.
+Give each session access to exactly the folders it needs — per session, per
+folder, read or write — instead of opening the whole workspace to writes or
+falling back to one-shot full access. Grants are remembered for the session and
+revocable at any time.
+
+## Screenshot
+
+![The Permissions tab showing the session's sandbox mode and allowed folders; it lets you grant or revoke per-folder write access](docs/screenshot.png)
 
 Implements the "Per-session folder-level read/write permissions" extension:
 the sandbox currently exposes one coarse `workspace-write` mode and otherwise
