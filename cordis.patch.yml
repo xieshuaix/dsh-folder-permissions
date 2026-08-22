@@ -1,0 +1,30 @@
+# dsh-folder-permissions — bundle patch layer.
+#
+# Installing this package into a profile appends it to `dsh.profile.bundles`;
+# this patch is then applied as that bundle's layer. The row loads the
+# package's main entry as the host half: a Cordis plugin that provides
+# `ctx.folderPermissions`, the `/folder-permissions` slash command, the
+# model-facing grant context, and the durable per-session grant store.
+#
+# `config` is optional (every field has a default):
+#   allow.read / allow.write            folders granted for every NEW session
+#                                       (stored per-session, so still revocable
+#                                       from the Permissions tab)
+#   allowGlobal.read / allowGlobal.write  deployment-wide roots, enforced for
+#                                       EVERY session and not revocable per-session
+#   (all four support a leading `~` for the user home)
+#
+# NOTE: recording and managing grants needs no core change. Making the
+# filesystem fence actually HONOR those grants is a one-time core patch:
+#   node scripts/patch-core.mjs --checkout <path-to-dsh-checkout>
+# followed by a host restart. See README.md.
+- insert:
+    - id: folder-permissions
+      name: dsh-folder-permissions
+      config:
+        allow:
+          read: []
+          write: []
+        allowGlobal:
+          read: []
+          write: []
