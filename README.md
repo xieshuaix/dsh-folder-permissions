@@ -9,6 +9,8 @@ revocable at any time.
 
 ![The Permissions tab showing the session's sandbox mode and allowed folders; it lets you grant or revoke per-folder write access](docs/screenshot.png)
 
+![Granted write access with revoke toggle](docs/screenshot2.png)
+
 Implements the "Per-session folder-level read/write permissions" extension:
 the sandbox currently exposes one coarse `workspace-write` mode and otherwise
 requires a one-shot `danger-full-access` escalation per denied write. This
